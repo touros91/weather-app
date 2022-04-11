@@ -5,7 +5,7 @@
       <!-- searchWeather method which performs API call using axios with the input data coming from child component-->
       <BaseInput @search="searchWeather" />
     </div>
-    
+
     <div class="error">{{ errorMessage }}</div>
 
     <!-- current day weather  -->
@@ -55,62 +55,72 @@
           </h2>
         </div>
       </div>
-<<<<<<< HEAD
 
       <!-- next 3 days weather  -->
       <div class="days d-flex justify-content-around mt-5">
-=======
-      <div class="days d-flex mt-5">
->>>>>>> 869a1533a6f0e89bb0126c881780f82bf878ce71
-        <div class="bg-shadow-days">
-          <h4>
-            {{ weekDays[new Date().getDay() + 1] }}
-          </h4>
-          <img
-            :src="nextDays.data.forecast.forecastday[0].day.condition.icon"
-            :alt="nextDays.data.forecast.forecastday[0].day.condition.text"
-          />
-          <div>
-            Min
-            {{ nextDays.data.forecast.forecastday[0].day.mintemp_c.toFixed(0) }}
+        <div class="days d-flex mt-5">
+          <div class="bg-shadow-days">
+            <div class="next-days">
+              {{ weekDays[new Date().getDay() + 1] }}
+            </div>
+            <img
+              :src="nextDays.data.forecast.forecastday[0].day.condition.icon"
+              :alt="nextDays.data.forecast.forecastday[0].day.condition.text"
+            />
+            <div>
+              Min
+              {{
+                nextDays.data.forecast.forecastday[0].day.mintemp_c.toFixed(0)
+              }}
+            </div>
+            <div>
+              Max
+              {{
+                nextDays.data.forecast.forecastday[0].day.maxtemp_c.toFixed(0)
+              }}
+            </div>
           </div>
-          <div>
-            Max
-            {{ nextDays.data.forecast.forecastday[0].day.maxtemp_c.toFixed(0) }}
+          <div class="bg-shadow-days">
+            <div class="next-days">
+              {{ weekDays[new Date().getDay() + 2] }}
+            </div>
+            <img
+              :src="nextDays.data.forecast.forecastday[1].day.condition.icon"
+              :alt="nextDays.data.forecast.forecastday[1].day.condition.text"
+            />
+            <div>
+              Min
+              {{
+                nextDays.data.forecast.forecastday[1].day.mintemp_c.toFixed(0)
+              }}
+            </div>
+            <div>
+              Max
+              {{
+                nextDays.data.forecast.forecastday[1].day.maxtemp_c.toFixed(0)
+              }}
+            </div>
           </div>
-        </div>
-        <div class="bg-shadow-days">
-          <h4>
-            {{ weekDays[new Date().getDay() + 2] }}
-          </h4>
-          <img
-            :src="nextDays.data.forecast.forecastday[1].day.condition.icon"
-            :alt="nextDays.data.forecast.forecastday[1].day.condition.text"
-          />
-          <div>
-            Min
-            {{ nextDays.data.forecast.forecastday[1].day.mintemp_c.toFixed(0) }}
-          </div>
-          <div>
-            Max
-            {{ nextDays.data.forecast.forecastday[1].day.maxtemp_c.toFixed(0) }}
-          </div>
-        </div>
-        <div class="bg-shadow-days">
-          <h4>
-            {{ weekDays[new Date().getDay() + 3] }}
-          </h4>
-          <img
-            :src="nextDays.data.forecast.forecastday[2].day.condition.icon"
-            :alt="nextDays.data.forecast.forecastday[2].day.condition.text"
-          />
-          <div>
-            Min
-            {{ nextDays.data.forecast.forecastday[2].day.mintemp_c.toFixed(0) }}
-          </div>
-          <div>
-            Max
-            {{ nextDays.data.forecast.forecastday[2].day.maxtemp_c.toFixed(0) }}
+          <div class="bg-shadow-days">
+            <div class="next-days">
+              {{ weekDays[new Date().getDay() + 3] }}
+            </div>
+            <img
+              :src="nextDays.data.forecast.forecastday[2].day.condition.icon"
+              :alt="nextDays.data.forecast.forecastday[2].day.condition.text"
+            />
+            <div>
+              Min
+              {{
+                nextDays.data.forecast.forecastday[2].day.mintemp_c.toFixed(0)
+              }}
+            </div>
+            <div>
+              Max
+              {{
+                nextDays.data.forecast.forecastday[2].day.maxtemp_c.toFixed(0)
+              }}
+            </div>
           </div>
         </div>
       </div>
@@ -279,7 +289,7 @@ export default {
 .bg-shadow {
   max-width: 500px;
   color: white;
-  padding: 20px 40px 20px 0;
+  padding: 10px 40px 0 0;
   margin: 0 auto;
   font-size: 20px;
   font-weight: 900;
@@ -290,21 +300,15 @@ export default {
 }
 
 .bg-shadow-days {
-  width: 120px;
+  width: 110px;
   color: white;
   padding: 8px;
-  margin: 0 auto;
-  margin-top: 15px;
-  font-size: 20px;
+  margin: 0 5px 0 5px;
+  font-size: 16px;
   font-weight: 900;
   text-shadow: 3px 3px rgb(0 0 0 / 15%);
   background-color: rgba(106, 104, 104, 0.474);
   border-radius: 16px;
   box-shadow: 3px 3px rgb(0 0 0 / 35%);
-}
-
-.days {
-  max-width: 1000px;
-  margin: 0 auto;
 }
 </style>
