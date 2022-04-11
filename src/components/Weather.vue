@@ -2,11 +2,13 @@
   <div class="main-container">
     <div class="baseInput">
       <h1 class="title">MyWeather</h1>
+      <!-- searchWeather method which performs API call using axios with the input data coming from child component-->
       <BaseInput @search="searchWeather" />
     </div>
 
     <div class="error">{{ errorMessage }}</div>
 
+    <!-- current day weather  -->
     <div
       v-if="weatherInfo && nextDays && !errorMessage"
       class="info bg-images"
@@ -49,6 +51,8 @@
           <h2>{{ weatherInfo.data.current.temp_c.toFixed(0) }}° C</h2>
         </div>
       </div>
+
+      <!-- next 3 days weather  -->
       <div class="days d-flex justify-content-around mt-5">
         <div class="bg-shadow-days">
           <h4>

@@ -6,44 +6,12 @@
 
 <script>
 import Weather from "./components/Weather";
-// import BaseInput from "./components/BaseInput.vue";
-// import axios from "axios";
 
 export default {
   name: "App",
   components: {
     Weather,
-    // BaseInput,
   },
-  // data() {
-  //   return {
-  //     weatherInfo: null,
-  //     city: "",
-  //     weekDays: [
-  //       "Sunday",
-  //       "Monday",
-  //       "Tuesday",
-  //       "Wednesday",
-  //       "Thursday",
-  //       "Friday",
-  //       "Saturday",
-  //     ],
-  //   };
-  // },
-  // methods: {
-  //   searchWeather(city) {
-  //     this.city = city;
-  //     console.log(this.city);
-  //     axios
-  //       .get(
-  //         `http://api.weatherapi.com/v1/forecast.json?key=0167a2c5f68c49d3895105630220504&q=${this.city}&days=10&aqi=no&alerts=no`
-  //       )
-  //       .then((res) => {
-  //         console.log(res);
-  //         this.weatherInfo = res;
-  //       });
-  //   },
-  // },
 };
 </script>
 

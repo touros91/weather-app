@@ -1,5 +1,6 @@
 <template>
   <div class="input-group mb-3">
+    <!-- $emit to pass City name from the input field to parent component in order to use it as parameter for the API call -->
     <input
       type="text"
       class="form-control"
