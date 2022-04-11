@@ -5,7 +5,7 @@
       <!-- searchWeather method which performs API call using axios with the input data coming from child component-->
       <BaseInput @search="searchWeather" />
     </div>
-
+    
     <div class="error">{{ errorMessage }}</div>
 
     <!-- current day weather  -->
@@ -29,12 +29,14 @@
           ? 'fog'
           : weatherInfo.data.current.condition.text === 'Heavy snow'
           ? 'snow'
+          : weatherInfo.data.current.condition.text === 'Light snow'
+          ? 'snow'
           : 'lightRain'
       "
     >
       <h1 class="city mb-4">{{ weatherInfo.data.location.name }}</h1>
       <div class="condition d-flex justify-content-between bg-shadow">
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
           <img
             class="icon"
             :src="weatherInfo.data.current.condition.icon"
@@ -44,16 +46,22 @@
             weatherInfo.data.current.condition.text
           }}</span>
         </div>
-        <div>
+        <div class="details">
           <div>Wind: {{ weatherInfo.data.current.wind_mph }}</div>
           <div>Precip: {{ weatherInfo.data.current.precip_in }}</div>
           <div>Pressure: {{ weatherInfo.data.current.pressure_in }}</div>
-          <h2>{{ weatherInfo.data.current.temp_c.toFixed(0) }}° C</h2>
+          <h2 class="temperature">
+            {{ weatherInfo.data.current.temp_c.toFixed(0) }}° C
+          </h2>
         </div>
       </div>
+<<<<<<< HEAD
 
       <!-- next 3 days weather  -->
       <div class="days d-flex justify-content-around mt-5">
+=======
+      <div class="days d-flex mt-5">
+>>>>>>> 869a1533a6f0e89bb0126c881780f82bf878ce71
         <div class="bg-shadow-days">
           <h4>
             {{ weekDays[new Date().getDay() + 1] }}
@@ -180,11 +188,12 @@ export default {
   top: 300px;
   transform: translate(-50%, -50%);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .title {
   font-weight: 900;
+  text-shadow: 3px 3px rgb(0 0 0 / 40%);
 }
 
 .baseInput {
@@ -246,23 +255,31 @@ export default {
 }
 
 .snow {
-  background-image: url("../assets/img/snow.jpeg");
+  background-image: url("../assets/img/snow.webp");
+}
+
+.clearNight {
+  background-image: url("../assets/img/clear-night.jpeg");
 }
 
 .info {
   padding-top: 200px;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
-.days {
-  max-width: 100%;
+.details {
+  font-size: 16px;
+}
+
+.temperature {
+  font-size: 35px;
 }
 
 .bg-shadow {
-  max-width: 600px;
+  max-width: 500px;
   color: white;
-  padding: 10px;
+  padding: 20px 40px 20px 0;
   margin: 0 auto;
   font-size: 20px;
   font-weight: 900;
@@ -273,15 +290,21 @@ export default {
 }
 
 .bg-shadow-days {
-  min-width: 110px;
+  width: 120px;
   color: white;
-  padding: 10px;
+  padding: 8px;
   margin: 0 auto;
+  margin-top: 15px;
   font-size: 20px;
   font-weight: 900;
   text-shadow: 3px 3px rgb(0 0 0 / 15%);
   background-color: rgba(106, 104, 104, 0.474);
   border-radius: 16px;
   box-shadow: 3px 3px rgb(0 0 0 / 35%);
+}
+
+.days {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 </style>
